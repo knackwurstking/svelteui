@@ -16,7 +16,7 @@
   /** @type {boolean} */
   let rendered = false;
 
-  /** @type {HTMLUListElement} */
+  /** @type {HTMLDivElement} */
   let ul;
 
   /** @param {any[]} data */
@@ -48,8 +48,7 @@
   });
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<ul
+<div
   bind:this={ul}
   on:click={(ev) => {
     /** @type {HTMLDivElement} */
@@ -88,7 +87,7 @@
 />
 
 <style>
-  ul {
+  div {
     margin: 0;
     padding: 0;
     position: relative;
