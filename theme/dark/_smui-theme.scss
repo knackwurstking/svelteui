@@ -50,7 +50,7 @@ body {
 
 *:not(.material-icons) {
   box-sizing: border-box;
-  font-family: FiraCode;
+  font-family: FiraCode !important;
 }
 
 a {
