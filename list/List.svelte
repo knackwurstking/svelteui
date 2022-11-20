@@ -56,7 +56,7 @@
 
     let el;
     // @ts-ignore
-    for (el of ev?.path || []) {
+    for (el of (ev?.path || ev.composedPath() || [])) {
       if (el.classList?.contains("list-item")) {
         item = el;
         break;
