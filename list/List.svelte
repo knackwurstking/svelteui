@@ -44,7 +44,7 @@
   }
 
   onMount(async () => {
-    rendered = true;
+    if (data && renderItem) rendered = true;
   });
 </script>
 
@@ -84,7 +84,9 @@
     }
   }}
   {...$$restProps}
-/>
+>
+  <slot />
+</div>
 
 <style>
   div {
