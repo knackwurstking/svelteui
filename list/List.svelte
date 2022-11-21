@@ -19,14 +19,21 @@
   /** @type {HTMLDivElement} */
   let ul;
 
+  let renderInterval;
+
   /** @param {any[]} data */
   async function render(...data) {
-    console.log(`Render data list with ${data.length} items.`);
+    if (renderInterval) {
+      clearInterval(renderInterval);
+      console.log(`Render data list with ${data.length} [CANCEL].`)
+    }
+
+    console.log(`Render data list with ${data.length} items [START]`);
 
     while (ul.lastChild) ul.removeChild(ul.lastChild);
     if (!data.length) return;
 
-    const interval = setInterval(() => {
+    renderInterval = setInterval(() => {
       try {
         const item = renderItem(data.shift());
         if (item) {
@@ -34,12 +41,16 @@
           ul.appendChild(item);
         }
       } catch (err) {
-        clearInterval(interval)
+        clearInterval(renderInterval)
+        console.log(`Render data list with ${data.length} [ABOARD]`)
         console.warn(err)
         return
       }
 
-      if (!data.length) clearInterval(interval);
+      if (!data.length) {
+        clearInterval(renderInterval);
+        console.log(`Render data list with ${data.length} [FINISHED]`)
+      }
     }, 1);
   }
 
