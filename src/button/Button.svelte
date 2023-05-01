@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import { createRippleAnimation } from "./utils";
+  import { createRippleAnimation } from ".";
 
   //export let variant: "text" | "raised" | "unelevated" | "outlined" =
   export let variant: "unelevated" | "outlined" = "unelevated";

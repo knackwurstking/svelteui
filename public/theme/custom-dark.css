@@ -226,12 +226,19 @@ a:visited {
   background-color: var(--theme-ripple-secondary);
 }
 
-
 .custom-button.outlined:disabled {
   color: var(--theme-disabled-label-color);
   background-color: transparent;
   border-color: var(--theme-disabled-label-background);
   border: 1px solid var(--theme-border-color);
+}
+
+/* List Component */
+.custom-list {
+  margin: 0;
+  padding: 8px 0;
+  list-style-type: none;
+  line-height: 1.5rem;
 }
 
 @keyframes ripple {
