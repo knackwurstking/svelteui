@@ -6,4 +6,4 @@
 
 ## TODO
 
-- [ ] create a package for importing svelteui into real svelte projects
+- [x] create a package for importing svelteui into real svelte projects
