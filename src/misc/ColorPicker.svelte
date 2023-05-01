@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Slider from "./custom/slider/Slider.svelte";
+    import Slider from "../slider/Slider.svelte";
 
     export let r: number = 0;
     $: r >= 0 && updateBrightnessValue();
