@@ -1,3 +1,5 @@
+import { createRippleAnimation as _createRippleAnimation } from "../button";
+
 const defaultOptions: CreateListItemOptions = {
   primaryText: "",
   secondaryText: "",
@@ -10,7 +12,17 @@ export interface CreateListItemOptions {
   meta: HTMLElement[] | null,
 }
 
-export function createListItem(list: HTMLElement, options: CreateListItemOptions | null = null): HTMLLIElement {
+export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) {
+  return _createRippleAnimation(ev);
+}
+
+export function createMeataElement(list: HTMLUListElement, el: HTMLElement): HTMLSpanElement {
+  const meta = document.createElement("span");
+
+  return meta
+}
+
+export function createListItem(list: HTMLUListElement, options: CreateListItemOptions | null = null): HTMLLIElement {
   if (!options) {
     options = defaultOptions;
   } else {
@@ -20,12 +32,12 @@ export function createListItem(list: HTMLElement, options: CreateListItemOptions
     };
   }
 
-  const li = document.createElement("li");
+  const item = document.createElement("li");
 
   // TODO: create li elemnt with data from options
-  li.classList.add("custom-list-item");
+  item.classList.add("custom-list-item");
 
-  list.appendChild(li);
+  list.appendChild(item);
 
-  return li
+  return item
 }
