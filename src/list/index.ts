@@ -1,17 +1,19 @@
 import { createRippleAnimation as _createRippleAnimation } from "../button";
 import List from "./List.svelte";
 
-const defaultOptions: CreateListItemOptions = {
-  primaryText: "",
-  secondaryText: "",
-  meta: null,
-};
-
 export interface CreateListItemOptions {
   primaryText: string,
   secondaryText: string,
+  checkList: boolean,
   meta: HTMLElement[] | null,
 }
+
+const defaultOptions: CreateListItemOptions = {
+  primaryText: "",
+  secondaryText: "",
+  checkList: false,
+  meta: null,
+};
 
 export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) {
   return _createRippleAnimation(ev);
@@ -19,6 +21,8 @@ export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTar
 
 export function createMeataElement(list: HTMLUListElement, el: HTMLElement): HTMLSpanElement {
   const meta = document.createElement("span");
+
+  // ...
 
   return meta;
 }
@@ -36,6 +40,7 @@ export function createListItem(list: HTMLUListElement, options: CreateListItemOp
   const item = document.createElement("li");
 
   // TODO: create li elemnt with data from options
+
   item.classList.add("custom-list-item");
 
   list.appendChild(item);
