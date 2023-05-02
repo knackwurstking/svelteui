@@ -1,3 +1,8 @@
+import Button from "./Button.svelte";
+
+export { default as Group } from "./Group.svelte";
+export { default as Label } from "./Label.svelte";
+
 export function createRippleAnimation(
   ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
 ) {
@@ -24,3 +29,5 @@ export function createRippleAnimation(
 
   button.appendChild(circle);
 }
+
+export default Button;

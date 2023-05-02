@@ -1,4 +1,5 @@
 import { createRippleAnimation as _createRippleAnimation } from "../button";
+import List from "./List.svelte";
 
 const defaultOptions: CreateListItemOptions = {
   primaryText: "",
@@ -41,3 +42,5 @@ export function createListItem(list: HTMLUListElement, options: CreateListItemOp
 
   return item
 }
+
+export default List;
