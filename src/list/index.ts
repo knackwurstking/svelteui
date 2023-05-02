@@ -5,7 +5,7 @@ const defaultOptions: CreateListItemOptions = {
   primaryText: "",
   secondaryText: "",
   meta: null,
-}
+};
 
 export interface CreateListItemOptions {
   primaryText: string,
@@ -20,7 +20,7 @@ export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTar
 export function createMeataElement(list: HTMLUListElement, el: HTMLElement): HTMLSpanElement {
   const meta = document.createElement("span");
 
-  return meta
+  return meta;
 }
 
 export function createListItem(list: HTMLUListElement, options: CreateListItemOptions | null = null): HTMLLIElement {
@@ -40,7 +40,7 @@ export function createListItem(list: HTMLUListElement, options: CreateListItemOp
 
   list.appendChild(item);
 
-  return item
+  return item;
 }
 
 export default List;
