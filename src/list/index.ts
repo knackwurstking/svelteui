@@ -1,3 +1,5 @@
+export { default } from "./List.svelte";
+
 import { createRippleAnimation as _createRippleAnimation } from "../button";
 import List from "./List.svelte";
 
@@ -47,5 +49,3 @@ export function createListItem(list: HTMLUListElement, options: CreateListItemOp
 
   return item;
 }
-
-export default List;
