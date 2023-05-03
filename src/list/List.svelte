@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let data: any[] | null | undefined;
+  export let data: any[] | null = null;
   $: !!data && renderList(...data);
 
   let customList: HTMLUListElement;
@@ -21,7 +21,7 @@
     if (!data.length) return;
 
     renderListInterval = setInterval(() => {
-      // ...
+      // TODO: ...
     }, 1);
   }
 </script>
@@ -29,3 +29,18 @@
 <ul class="custom-list">
   <slot />
 </ul>
+
+<style>
+  .custom-list {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+</style>
