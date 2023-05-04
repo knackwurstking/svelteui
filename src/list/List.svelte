@@ -1,12 +1,18 @@
 <script lang="ts">
-  export let data: any[] | null = null;
+  import { createListItem, type CreateListItemOptions } from ".";
+
+  export let data: CreateListItemOptions[] | null = null;
   $: !!data && renderList(...data);
+
+  export let renderItemHandler:
+    | ((data: CreateListItemOptions) => HTMLLIElement)
+    | null = createListItem;
 
   let customList: HTMLUListElement;
   let renderListInterval: number | null = null;
 
   function renderList(...data: any[]) {
-    if (!customList) return;
+    if (!customList || !data) return;
 
     if (renderListInterval !== null) {
       clearInterval(renderListInterval);
@@ -20,8 +26,23 @@
     // return if data list is empty
     if (!data.length) return;
 
+    if (!renderItemHandler) throw `renderItemHandler missing!`;
     renderListInterval = setInterval(() => {
-      // TODO: ...
+      try {
+        const item = renderItemHandler(data.shift());
+        if (item) {
+          customList.appendChild(item);
+        }
+      } catch (err) {
+        clearInterval(renderListInterval);
+        console.warn(`[list] Rendering data list failed!`);
+        console.error(err);
+      }
+
+      if (!data.length) {
+        clearInterval(renderListInterval);
+        console.log(`[list] Rendering data done`);
+      }
     }, 1);
   }
 </script>
