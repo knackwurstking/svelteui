@@ -1,12 +1,11 @@
 <script lang="ts">
-  import { createListItem, type CreateListItemOptions } from ".";
+  import { createItem, type ItemOptions } from ".";
 
-  export let data: CreateListItemOptions[] | null = null;
+  export let data: ItemOptions[] | null = null;
   $: !!data && renderList(...data);
 
-  export let renderItemHandler:
-    | ((data: CreateListItemOptions) => HTMLLIElement)
-    | null = createListItem;
+  export let renderItemHandler: ((data: ItemOptions) => HTMLLIElement) | null =
+    createItem;
 
   let customList: HTMLUListElement;
   let renderListInterval: number | null = null;
