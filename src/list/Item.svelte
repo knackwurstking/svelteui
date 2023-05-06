@@ -4,7 +4,7 @@
   export let secondaryText: string = "";
 
   /** Used for List item (un)check */
-  export const value: any = null;
+  export let value: any = null;
 </script>
 
 <li
