@@ -1,9 +1,5 @@
 export { default } from "./List.svelte";
 export { default as Item } from "./Item.svelte";
-export { default as Meta } from "./Meta.svelte";
-export { default as Text } from "./Text.svelte";
-export { default as PrimaryText } from "./PrimaryText.svelte";
-export { default as SecondaryText } from "./SecondaryText.svelte";
 
 import { createRippleAnimation as _createRippleAnimation } from "../button";
 
