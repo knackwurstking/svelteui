@@ -59,7 +59,7 @@
   function _click(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLUListElement }
   ) {
-    let item: HTMLUListElement;
+    let item: HTMLLIElement;
 
     for (const el of ev.path || ev.composedPath() || []) {
       if (el.classList.contains("custom-list-item")) {
@@ -100,6 +100,8 @@
 </ul>
 
 <style>
+  /* TODO: Move styles to theme */
+
   .custom-list {
     position: relative;
     width: 100%;

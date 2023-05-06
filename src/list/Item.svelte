@@ -23,6 +23,8 @@
 </li>
 
 <style>
+  /* TODO: Move styles to theme */
+
   .custom-list-item {
     position: relative;
     list-style-type: none;

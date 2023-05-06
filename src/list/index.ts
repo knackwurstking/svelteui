@@ -8,22 +8,40 @@ export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTar
   return _createRippleAnimation(ev);
 }
 
-export function createItem(data: any): HTMLLIElement {
+export function createMeta(...children: HTMLElement[]): HTMLSpanElement {
+  const span = document.createElement("span");
+
+  span.classList.add("custom-list-item__meta");
+  span.append(...children);
+
+  return span
+}
+
+export function createItem(data: any, options: { leftMeta: HTMLElement[], rightMeta: HTMLElement[] } = { leftMeta: [], rightMeta: [] }): HTMLLIElement {
   const item = document.createElement("li");
 
   item.classList.add("custom-list-item");
   item.setAttribute("data-value", JSON.stringify(data));
   item.style.height = "fit-content";
-  item.innerHTML = `
-    <slot name="left" />
 
-    <span class="custom-list-item__text">
-      <span class="custom-list-item__primary-text">{primaryText}</span><br />
-      <span class="custom-list-item__secondary-text">{secondaryText}</span>
-    </span>
+  let el: HTMLSpanElement;
+  if (options?.leftMeta?.length) {
+    el = createMeta(...options.leftMeta);
+    item.appendChild(el);
+  }
 
-    <slot name="right" />
+  el = document.createElement("span");
+  el.classList.add("custom-list-item__text");
+  el.innerHTML = `
+    <span class="custom-list-item__primary-text"></span><br />
+    <span class="custom-list-item__secondary-text"></span>
   `;
+  item.appendChild(el);
+
+  if (options?.rightMeta?.length) {
+    el = createMeta(...options.leftMeta);
+    item.appendChild(el);
+  }
 
   return item;
 }
