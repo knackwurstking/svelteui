@@ -2,6 +2,9 @@
   export let height: number | string = "fit-content";
   export let primaryText: string = "";
   export let secondaryText: string = "";
+
+  /** Used for List item (un)check */
+  export const value: any = null;
 </script>
 
 <li

@@ -1,11 +1,14 @@
 <script lang="ts">
-  import { createItem, type ItemOptions } from ".";
+  export let checkable: boolean = false;
+  export let multiple: boolean = false;
 
-  export let data: ItemOptions[] | null = null;
+  /** List with selected list items (item name) */
+  export let group: any[] = [];
+
+  export let data: any[] | null = null;
   $: !!data && renderList(...data);
 
-  export let renderItemHandler: ((data: ItemOptions) => HTMLLIElement) | null =
-    createItem;
+  export let renderItemHandler: ((data: any) => HTMLLIElement) | null = null;
 
   let customList: HTMLUListElement;
   let renderListInterval: number | null = null;
@@ -44,9 +47,17 @@
       }
     }, 1);
   }
+
+  function _click(
+    ev: MouseEvent & { currentTarget: EventTarget & HTMLUListElement }
+  ) {
+    // TODO: get clicked item, handle checked or uncheck and dispatch (with some data)
+    //       adding item value (data) to group
+  }
 </script>
 
-<ul class="custom-list">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<ul class="custom-list" on:click={checkable ? (ev) => _click(ev) : null}>
   <slot />
 </ul>
 
