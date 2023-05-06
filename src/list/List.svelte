@@ -1,14 +1,19 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
+  import { createItem } from ".";
+
+  const dispatch = createEventDispatcher();
+
   export let checkable: boolean = false;
   export let multiple: boolean = false;
 
-  /** List with selected list items (item name) */
-  export let group: any[] = [];
-
   export let data: any[] | null = null;
-  $: !!data && !!renderItemHandler && renderList(...data);
+  $: !!data && renderList(...data);
 
-  export let renderItemHandler: ((data: any) => HTMLLIElement) | null = null;
+  export let renderItemHandler:
+    | ((item: HTMLLIElement, data: any) => HTMLLIElement)
+    | null = null;
 
   let customList: HTMLUListElement;
   let renderListInterval: number | null = null;
@@ -28,13 +33,13 @@
     // return if data list is empty
     if (!data.length) return;
 
-    if (!renderItemHandler) throw `renderItemHandler missing!`;
     renderListInterval = setInterval(() => {
       try {
-        const item = renderItemHandler(data.shift());
-        if (item) {
-          customList.appendChild(item);
-        }
+        const _data = data.shift();
+        const item: HTMLLIElement = !!renderItemHandler
+          ? renderItemHandler(createItem(_data), _data)
+          : createItem(_data);
+        customList.appendChild(item);
       } catch (err) {
         clearInterval(renderListInterval);
         console.warn(`[list] Rendering data list failed!`);
@@ -51,11 +56,34 @@
   function _click(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLUListElement }
   ) {
-    // TODO: get clicked item, handle checked or uncheck and dispatch (with some data)
-    //       adding item value (data) to group
     let item: HTMLUListElement;
 
-    // TODO: get item from `ev?.path || ev.composedPath() || []`
+    for (const el of ev.path || ev.composedPath() || []) {
+      if (el.classList.contains("custom-list-item")) {
+        item = el;
+        break;
+      }
+    }
+
+    if (!item) return;
+    item.classList.toggle("checked");
+
+    if (item.classList.contains("checked"))
+      dispatch("itemcheck", {
+        data: JSON.parse(item.getAttribute("data-value")),
+      });
+    else
+      dispatch("itemuncheck", {
+        data: JSON.parse(item.getAttribute("data-value")),
+      });
+
+    if (!multiple && item.classList.contains("checked")) {
+      for (const c of customList.children) {
+        if (c.classList.contains("custom-list-item"))
+          c.classList.remove("checked");
+        dispatch("uncheck", { data: JSON.parse(c.getAttribute("data-value")) });
+      }
+    }
   }
 </script>
 
