@@ -6,7 +6,7 @@
   export let group: any[] = [];
 
   export let data: any[] | null = null;
-  $: !!data && renderList(...data);
+  $: !!data && !!renderItemHandler && renderList(...data);
 
   export let renderItemHandler: ((data: any) => HTMLLIElement) | null = null;
 
@@ -53,6 +53,9 @@
   ) {
     // TODO: get clicked item, handle checked or uncheck and dispatch (with some data)
     //       adding item value (data) to group
+    let item: HTMLUListElement;
+
+    // TODO: get item from `ev?.path || ev.composedPath() || []`
   }
 </script>
 
