@@ -1,5 +1,6 @@
 export { default } from "./List.svelte";
 export { default as Item } from "./Item.svelte";
+export { default as Meta } from "./Meta.svelte";
 
 import { createRippleAnimation as _createRippleAnimation } from "../button";
 
