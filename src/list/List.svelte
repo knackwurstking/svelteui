@@ -8,6 +8,9 @@
   export let checkable: boolean = false;
   export let multiple: boolean = false;
 
+  /** checklist will disable all the highlighting for the items ".checked" class */
+  export let checklist: boolean = false;
+
   export let data: any[] | null = null;
   $: !!data && renderList(...data);
 
@@ -88,7 +91,11 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<ul class="custom-list" on:click={checkable ? (ev) => _click(ev) : null}>
+<ul
+  class="custom-list"
+  class:checklist
+  on:click={checkable ? (ev) => _click(ev) : null}
+>
   <slot />
 </ul>
 
