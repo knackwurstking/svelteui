@@ -12,7 +12,7 @@
   function _click(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
   ) {
-    createRippleAnimation(ev);
+    createRippleAnimation(ev, ev.currentTarget as HTMLButtonElement);
     dispatch("click", ev);
   }
 </script>

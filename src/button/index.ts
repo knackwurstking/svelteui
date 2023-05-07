@@ -3,11 +3,8 @@ export { default } from "./Button.svelte";
 export { default as Group } from "./Group.svelte";
 export { default as Label } from "./Label.svelte";
 
-export function createRippleAnimation(
-  ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }
-) {
-  const button = ev.currentTarget;
-  const rect = button.getBoundingClientRect();
+export function createRippleAnimation(ev: MouseEvent, el: HTMLButtonElement) {
+  const rect = el.getBoundingClientRect();
 
   const cursorX = ev.clientX - rect.x;
   const cursorY = ev.clientY - rect.y;
@@ -21,11 +18,11 @@ export function createRippleAnimation(
   circle.style.top = `${cursorY - radius}px`;
   circle.classList.add("ripple");
 
-  const ripple = button.getElementsByClassName("ripple")[0];
+  const ripple = el.getElementsByClassName("ripple")[0];
 
   if (ripple) {
     ripple.remove();
   }
 
-  button.appendChild(circle);
+  el.appendChild(circle);
 }

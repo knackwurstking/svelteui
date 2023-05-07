@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import { createItem } from ".";
+  import { createItem, createRippleAnimation } from ".";
 
   const dispatch = createEventDispatcher();
 
@@ -61,8 +61,9 @@
   ) {
     let item: HTMLLIElement;
 
-    for (const el of ev.path || ev.composedPath() || []) {
-      if (el.classList.contains("custom-list-item")) {
+    // @ts-expect-error "path does not exists"
+    for (const el of ev?.path || ev.composedPath() || []) {
+      if (el.classList?.contains("custom-list-item")) {
         item = el;
         break;
       }
@@ -70,6 +71,7 @@
 
     if (!item) return;
     item.classList.toggle("checked");
+    createRippleAnimation(ev, item);
 
     if (item.classList.contains("checked"))
       dispatch("itemcheck", {

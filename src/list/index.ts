@@ -4,8 +4,9 @@ export { default as Meta } from "./Meta.svelte";
 
 import { createRippleAnimation as _createRippleAnimation } from "../button";
 
-export function createRippleAnimation(ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) {
-  return _createRippleAnimation(ev);
+export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement) {
+  // @ts-expect-error
+  return _createRippleAnimation(ev, el);
 }
 
 export function createMeta(...children: HTMLElement[]): HTMLSpanElement {
