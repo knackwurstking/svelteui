@@ -44,6 +44,7 @@
     bind:this={container}
     class="custom-slider__container"
     class:vertical={orient === "vertical"}
+    {...$$restProps}
     on:pointerdown={(ev) => {
         const rect = container.getBoundingClientRect();
         pointer = {
@@ -84,7 +85,6 @@
             pointer = null;
         }
     }}
-    {...$$restProps}
 >
     <div class="custom-slider__track" />
 

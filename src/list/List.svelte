@@ -61,6 +61,7 @@
   function _click(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLUListElement }
   ) {
+    // FIXME: double check dispatch event
     let item: HTMLLIElement;
 
     // @ts-expect-error "path does not exists"
@@ -72,32 +73,36 @@
     }
 
     if (!item) return;
-    item.classList.toggle("checked");
-    createRippleAnimation(ev, item);
 
-    if (item.classList.contains("checked"))
-      dispatch("itemcheck", {
-        data: JSON.parse(item.getAttribute("data-value")),
-      });
-    else
-      dispatch("itemuncheck", {
-        data: JSON.parse(item.getAttribute("data-value")),
-      });
-
-    if (!multiple && item.classList.contains("checked")) {
+    if (!multiple && !item.classList.contains("checked")) {
       for (const c of customList.children) {
         if (c.classList.contains("custom-list-item"))
           c.classList.remove("checked");
         dispatch("uncheck", { data: JSON.parse(c.getAttribute("data-value")) });
       }
     }
+
+    item.classList.toggle("checked");
+    if (item.classList.contains("checked")) {
+      createRippleAnimation(ev, item);
+      dispatch("itemcheck", {
+        data: JSON.parse(item.getAttribute("data-value")),
+      });
+    } else {
+      createRippleAnimation(ev, item, { reverse: true });
+      dispatch("itemuncheck", {
+        data: JSON.parse(item.getAttribute("data-value")),
+      });
+    }
   }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <ul
+  bind:this={customList}
   class="custom-list"
   class:checklist
+  {...$$restProps}
   on:click={checkable ? (ev) => _click(ev) : null}
 >
   <slot />

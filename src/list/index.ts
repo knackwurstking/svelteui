@@ -2,11 +2,11 @@ export { default } from "./List.svelte";
 export { default as Item } from "./Item.svelte";
 export { default as Meta } from "./Meta.svelte";
 
-import { createRippleAnimation as _createRippleAnimation } from "../button";
+import { createRippleAnimation as _createRippleAnimation, type RippleOptions } from "../button";
 
-export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement) {
+export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement, options: RippleOptions = null) {
   // @ts-expect-error
-  return _createRippleAnimation(ev, el);
+  return _createRippleAnimation(ev, el, options);
 }
 
 export function createMeta(...children: HTMLElement[]): HTMLSpanElement {

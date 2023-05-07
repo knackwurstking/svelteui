@@ -11,6 +11,7 @@
   class="custom-list-item"
   style={`height: ${typeof height === "number" ? `${height}px` : `${height}`}`}
   data-value={JSON.stringify(value)}
+  {...$$restProps}
 >
   <slot name="left" />
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<span><slot /></span>
+<span {...$$restProps}><slot /></span>
 
 <style>
   span {

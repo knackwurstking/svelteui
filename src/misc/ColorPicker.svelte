@@ -28,10 +28,10 @@
 
 <div
     class="container"
-    {...$$restProps}
     style={`--rgb: rgba(${(r / 100) * 255}, ${(g / 100) * 255}, ${
         (b / 100) * 255
     }, 0.75);`}
+    {...$$restProps}
 >
     <div class="color">
         <div class="input">
