@@ -102,20 +102,3 @@
 >
   <slot />
 </ul>
-
-<style>
-  /* TODO: Move styles to theme */
-
-  .custom-list {
-    position: relative;
-    width: 100%;
-    max-height: 100%;
-
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    overflow: auto;
-    scroll-behavior: smooth;
-  }
-</style>
