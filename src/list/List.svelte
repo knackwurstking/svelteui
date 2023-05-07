@@ -1,4 +1,6 @@
 <script lang="ts">
+  // TODO: need to test: "renderList" mode, (with props: "data", "renderItemHandler", "checkable", "multiple", "checklist")
+
   import { createEventDispatcher } from "svelte";
 
   import { createItem, createRippleAnimation } from ".";
