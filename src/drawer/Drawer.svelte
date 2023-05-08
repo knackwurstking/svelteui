@@ -59,6 +59,7 @@
     height: 100vh;
     bottom: 0;
     z-index: 1;
+    transition: background-color 0.25s ease;
   }
 
   .custom-drawer__outer:not(.custom-drawer__open),
