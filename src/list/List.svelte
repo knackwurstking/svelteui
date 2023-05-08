@@ -61,7 +61,6 @@
   function _click(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLUListElement }
   ) {
-    // FIXME: double check dispatch event
     let item: HTMLLIElement;
 
     // @ts-expect-error "path does not exists"
@@ -76,13 +75,17 @@
 
     if (!multiple && !item.classList.contains("checked")) {
       for (const c of customList.children) {
-        if (c.classList.contains("custom-list-item"))
+        if (c.classList.contains("custom-list-item")) {
           c.classList.remove("checked");
-        dispatch("uncheck", { data: JSON.parse(c.getAttribute("data-value")) });
+          dispatch("itemuncheck", {
+            data: JSON.parse(c.getAttribute("data-value")),
+          });
+        }
       }
     }
 
     item.classList.toggle("checked");
+
     if (item.classList.contains("checked")) {
       createRippleAnimation(ev, item);
       dispatch("itemcheck", {

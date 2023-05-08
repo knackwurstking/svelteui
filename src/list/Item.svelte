@@ -5,10 +5,13 @@
 
   /** Used for List item (un)check */
   export let value: any = null;
+
+  export let checked: boolean = false;
 </script>
 
 <li
   class="custom-list-item"
+  class:checked
   style={`height: ${typeof height === "number" ? `${height}px` : `${height}`}`}
   data-value={JSON.stringify(value)}
   {...$$restProps}
