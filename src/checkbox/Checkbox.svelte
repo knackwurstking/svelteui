@@ -23,12 +23,14 @@
   {...$$restProps}
 >
   {#if group.indexOf(value) >= 0}
-    <div class="material-icons">check_box</div>
+    <div class="material-symbols-outlined">check_box</div>
   {:else}
-    <div class="material-icons">check_box_outline_blank</div>
+    <div class="material-symbols-outlined">check_box_outline_blank</div>
   {/if}
 </div>
 
 <style>
   /* TODO: move styles to theme */
+  .custom-checkbox {
+  }
 </style>
