@@ -30,13 +30,3 @@
     <div class="material-symbols-outlined">check_box_outline_blank</div>
   {/if}
 </div>
-
-<style>
-  .custom-checkbox {
-    color: var(--theme-secondary);
-  }
-
-  .custom-checkbox__primary {
-    color: var(--theme-primary);
-  }
-</style>
