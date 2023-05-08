@@ -4,10 +4,14 @@
   export let group: any[] = [];
   export let value: any = undefined;
 
-  function _click(
-    ev: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }
-  ) {
-    // TODO: add value to group (or remove)
+  function _click() {
+    const idx = group.indexOf(value);
+    if (idx < 0) {
+      group.push(value);
+      group = group;
+    } else {
+      group = [...group.slice(0, idx), ...group.slice(idx + 1)];
+    }
   }
 </script>
 
@@ -15,7 +19,7 @@
 <div
   class="custom-checkbox"
   class:checked={group.indexOf(value) >= 0}
-  on:click={disableUserActions ? _click : null}
+  on:click={!disableUserActions ? _click : null}
   {...$$restProps}
 >
   {#if group.indexOf(value) >= 0}

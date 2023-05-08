@@ -1,6 +1,4 @@
 <script lang="ts">
-  // TODO: need to test: "renderList" mode, (with props: "data", "renderItemHandler", "checkable", "multiple", "checklist")
-
   import { createEventDispatcher } from "svelte";
 
   import { createItem, createRippleAnimation } from ".";
@@ -15,6 +13,8 @@
 
   export let data: any[] | null = null;
   $: !!data && renderList(...data);
+
+  export let group: any[] = [];
 
   export let renderItemHandler:
     | ((item: HTMLLIElement, data: any) => HTMLLIElement)
@@ -77,25 +77,43 @@
       for (const c of customList.children) {
         if (c.classList.contains("custom-list-item")) {
           c.classList.remove("checked");
-          dispatch("itemuncheck", {
-            data: JSON.parse(c.getAttribute("data-value")),
+
+          const dataValue = JSON.parse(c.getAttribute("data-value"));
+
+          {
+            const idx = group.indexOf(dataValue);
+            if (idx >= 0)
+              group = [...group.slice(0, idx), ...group.slice(idx + 1)];
+          }
+
+          createRippleAnimation(ev, c as HTMLLIElement, {
+            reverse: !checklist,
           });
+          dispatch("itemuncheck", { data: dataValue });
         }
       }
     }
 
     item.classList.toggle("checked");
 
+    const dataValue = JSON.parse(item.getAttribute("data-value"));
+
     if (item.classList.contains("checked")) {
+      if (group.indexOf(dataValue) < 0) {
+        group.push(dataValue);
+        group = group;
+      }
+
       createRippleAnimation(ev, item);
-      dispatch("itemcheck", {
-        data: JSON.parse(item.getAttribute("data-value")),
-      });
+      dispatch("itemcheck", { data: dataValue });
     } else {
-      createRippleAnimation(ev, item, { reverse: true });
-      dispatch("itemuncheck", {
-        data: JSON.parse(item.getAttribute("data-value")),
-      });
+      {
+        const idx = group.indexOf(dataValue);
+        if (idx >= 0) group = [...group.slice(0, idx), ...group.slice(idx + 1)];
+      }
+
+      createRippleAnimation(ev, item, { reverse: !checklist });
+      dispatch("itemuncheck", { data: dataValue });
     }
   }
 </script>
