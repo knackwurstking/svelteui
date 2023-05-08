@@ -1,0 +1,4 @@
+.custom-drawer {
+  background-color: var(--theme-secondary);
+  border-right: 1px solid var(--theme-border-color);
+}
