@@ -8,9 +8,10 @@
   class="custom-drawer"
   class:custom-drawer__swipeable={swipeable}
   style={`
-    width: ${300}px;
-    left: -${300}px;
+    width: ${width}px;
+    left: -${width}px;
   `}
+  {...$$restProps}
 >
   <slot />
 </div>
