@@ -8,6 +8,10 @@
   import Sliders from "./_demo/routes/sliders/Sliders.svelte";
 </script>
 
+<svelte:head>
+  <title>Demo</title>
+</svelte:head>
+
 <Router>
   <!-- TODO: a drawer component here to choose which route to go? -->
   <div>
