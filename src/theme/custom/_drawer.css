@@ -1,3 +1,12 @@
+.custom-drawer__outer {
+  background-color: var(--theme-drawer-outer);
+}
+
+.custom-drawer__outer:not(.custom-drawer__open),
+.custom-drawer__fixed {
+  background-color: transparent;
+}
+
 .custom-drawer {
   background-color: var(--theme-secondary);
   border-right: 1px solid var(--theme-border-color);

@@ -38,8 +38,8 @@
 }
 
 .custom-button.unelevated:disabled {
-  color: var(--theme-disabled-label-color);
-  background-color: var(--theme-disabled-label-background);
+  color: var(--theme-button-disabled-color);
+  background-color: var(--theme-button-disabled-background);
 }
 
 .custom-button.outlined:not(:disabled) {
@@ -56,9 +56,9 @@
 }
 
 .custom-button.outlined:disabled {
-  color: var(--theme-disabled-label-color);
+  color: var(--theme-button-disabled-color);
   background-color: transparent;
-  border-color: var(--theme-disabled-label-background);
+  border-color: var(--theme-button-disabled-border-color);
   border: 1px solid var(--theme-border-color);
 }
 
