@@ -8,8 +8,11 @@
   export let fixed: boolean = false;
   export let open: boolean = false;
 
-  function _clickOuter(ev: MouseEvent & { target: EventTarget & HTMLElement }) {
-    // TODO: check if position is outside the drawer
+  function _clickOuter(
+    ev: MouseEvent & { currentTarget: EventTarget & HTMLDivElement } & {
+      target: EventTarget & HTMLElement;
+    }
+  ) {
     if (!ev.target.classList?.contains("custom-drawer__outer")) return;
     open = false;
   }
