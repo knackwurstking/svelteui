@@ -28,7 +28,6 @@
   --theme-button-height: 36px;
 
   /* list specific stuff */
-  /* TODO: need a different alpa here then ripple */
   --theme-list-item-primary: rgba(62, 255, 0, 0.7);
 
   /* ripple effect colors */
