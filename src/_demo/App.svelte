@@ -1,11 +1,11 @@
 <script lang="ts">
   // TODO: showcase (and testing) all the components here
   import { Router, Link, Route } from "svelte-routing";
-  import Buttons from "./_demo/routes/buttons/Buttons.svelte";
-  import Checkboxes from "./_demo/routes/checkboxes/Checkboxes.svelte";
-  import Lists from "./_demo/routes/lists/Lists.svelte";
-  import Misc from "./_demo/routes/misc/Misc.svelte";
-  import Sliders from "./_demo/routes/sliders/Sliders.svelte";
+  import Buttons from "./routes/buttons/Buttons.svelte";
+  import Checkboxes from "./routes/checkboxes/Checkboxes.svelte";
+  import Lists from "./routes/lists/Lists.svelte";
+  import Misc from "./routes/misc/Misc.svelte";
+  import Sliders from "./routes/sliders/Sliders.svelte";
 </script>
 
 <svelte:head>
