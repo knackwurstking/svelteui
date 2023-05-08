@@ -1,4 +1,6 @@
 <script lang="ts">
+  // TODO: clean up this mess
+
   import { createEventDispatcher } from "svelte";
 
   import { createItem, createRippleAnimation } from ".";
