@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let variant: "primary" | "secondary" = "secondary";
   /* disableUserActions will only allow check and uncheck programmatically */
   export let disableUserActions: boolean = false;
   export let group: any[] = [];
@@ -19,6 +20,7 @@
 <div
   class="custom-checkbox"
   class:checked={group.indexOf(value) >= 0}
+  class:custom-checkbox__primary={variant === "primary"}
   on:click={!disableUserActions ? _click : null}
   {...$$restProps}
 >
@@ -30,7 +32,11 @@
 </div>
 
 <style>
-  /* TODO: move styles to theme */
   .custom-checkbox {
+    color: var(--theme-secondary);
+  }
+
+  .custom-checkbox__primary {
+    color: var(--theme-primary);
   }
 </style>
