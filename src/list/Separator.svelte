@@ -5,6 +5,7 @@
 <div
   class="custom-list-separator"
   class:custom-list-separator__vertical={vertical}
+  {...$$restProps}
 />
 
 <style>
