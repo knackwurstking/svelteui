@@ -7,4 +7,3 @@
 ## TODO
 
 - [x] create a package for importing svelteui into real svelte projects
-- [ ] switch to javascript
