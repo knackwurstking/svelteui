@@ -1,16 +1,22 @@
 {
   "name": "svelteui",
-  "version": "0.0.2",
-  "svelte": "src/index.js",
+  "version": "0.0.1",
+  "svelte": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
+    "@tsconfig/svelte": "^4.0.1",
     "svelte": "^3.57.0",
+    "svelte-check": "^2.10.3",
+    "svelte-routing": "^1.8.9",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.2",
     "vite": "^4.3.2"
   }
 }
