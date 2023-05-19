@@ -5,7 +5,7 @@ export { default as Separator } from "./Separator.svelte";
 
 import { createRippleAnimation as _createRippleAnimation, type RippleOptions } from "../button";
 
-export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement, options: RippleOptions = null) {
+export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement, options: RippleOptions | null = null) {
   // @ts-expect-error
   return _createRippleAnimation(ev, el, options);
 }
