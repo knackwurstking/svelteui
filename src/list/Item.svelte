@@ -1,4 +1,7 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class };
+
   export let height: number | string = "fit-content";
   export let primaryText: string = "";
   export let secondaryText: string = "";
@@ -10,7 +13,7 @@
 </script>
 
 <li
-  class="custom-list-item"
+  class={"custom-list-item " + _class}
   class:checked
   style={`height: ${typeof height === "number" ? `${height}px` : `${height}`}`}
   data-value={JSON.stringify(value)}

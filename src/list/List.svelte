@@ -7,8 +7,12 @@
 
   const dispatch = createEventDispatcher();
 
+  let _class = "";
+  export { _class as class };
+
   export let checkable: boolean = false;
   export let multiple: boolean = false;
+  export let orientation: "vertical" | "horizontal" = "horizontal";
 
   /** checklist will disable all the highlighting for the items ".checked" class */
   export let checklist: boolean = false;
@@ -123,8 +127,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <ul
   bind:this={customList}
-  class="custom-list"
+  class={"custom-list " + _class}
   class:checklist
+  class:vertical={orientation === "vertical"}
   {...$$restProps}
   on:click={checkable ? (ev) => _click(ev) : null}
 >

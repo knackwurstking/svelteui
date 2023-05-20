@@ -1,9 +1,12 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class };
+
   export let vertical: boolean = false;
 </script>
 
 <div
-  class="custom-list-separator"
+  class={"custom-list-separator " + _class}
   class:custom-list-separator__vertical={vertical}
   {...$$restProps}
 />
