@@ -12,7 +12,6 @@
 
   export let checkable: boolean = false;
   export let multiple: boolean = false;
-  export let orientation: "vertical" | "horizontal" = "horizontal";
 
   /** checklist will disable all the highlighting for the items ".checked" class */
   export let checklist: boolean = false;
@@ -129,7 +128,6 @@
   bind:this={customList}
   class={"custom-list " + _class}
   class:checklist
-  class:vertical={orientation === "vertical"}
   {...$$restProps}
   on:click={checkable ? (ev) => _click(ev) : null}
 >

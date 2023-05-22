@@ -11,13 +11,6 @@
   scroll-behavior: smooth;
 }
 
-.custom-list.vertical > li {
-  display: block;
-  float: left;
-  width: fit-content;
-  height: 100%;
-}
-
 .custom-list-item {
   position: relative;
   list-style-type: none;
