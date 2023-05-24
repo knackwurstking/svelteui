@@ -1,4 +1,7 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class };
+
   export let variant: "primary" | "secondary" = "secondary";
   /* disableUserActions will only allow check and uncheck programmatically */
   export let disableUserActions: boolean = false;
@@ -18,7 +21,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-  class="custom-checkbox"
+  class={"custom-checkbox " + _class}
   class:checked={group.indexOf(value) >= 0}
   class:custom-checkbox__primary={variant === "primary"}
   on:click={!disableUserActions ? _click : null}

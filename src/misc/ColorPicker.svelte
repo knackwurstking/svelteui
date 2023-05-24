@@ -1,6 +1,9 @@
 <script lang="ts">
   import Slider from "../slider/Slider.svelte";
 
+  let _class = "";
+  export { _class as class };
+
   export let r: number = 0;
   $: r >= 0 && updateBrightnessValue();
 
@@ -27,7 +30,7 @@
 </script>
 
 <div
-  class="container"
+  class={"container " + _class}
   style={`--rgb: rgba(${(r / 100) * 255}, ${(g / 100) * 255}, ${
     (b / 100) * 255
   }, 0.75);`}

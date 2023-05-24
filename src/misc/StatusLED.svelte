@@ -1,8 +1,11 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class };
+
   export let active: boolean = false;
 </script>
 
-<div class="outer" {...$$restProps}>
+<div class={"outer " + _class} {...$$restProps}>
   <div
     class="inner"
     style={`

@@ -3,6 +3,9 @@
 
   const dispatch = createEventDispatcher();
 
+  let _class = "";
+  export { _class as class };
+
   export let min = 0;
   export let max = 100;
   export let value = 50;
@@ -39,7 +42,7 @@
 
 <div
   bind:this={container}
-  class="custom-slider__container"
+  class={"custom-slider__container " + _class}
   class:vertical={orient === "vertical"}
   {...$$restProps}
   on:pointerdown={(ev) => {

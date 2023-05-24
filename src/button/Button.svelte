@@ -3,6 +3,9 @@
 
   import { createRippleAnimation } from ".";
 
+  let _class = "";
+  export { _class as class };
+
   //export let variant: "text" | "raised" | "unelevated" | "outlined" =
   export let variant: "unelevated" | "outlined" = "unelevated";
   export let color: "primary" | "secondary" = "primary";
@@ -18,7 +21,7 @@
 </script>
 
 <button
-  class={`custom-button ${variant} ${color}`}
+  class={`custom-button ${variant} ${color} ` + _class}
   style={`` + $$props.style || ""}
   {...$$restProps}
   on:click={_click}

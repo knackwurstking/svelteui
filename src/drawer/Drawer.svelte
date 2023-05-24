@@ -1,6 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  let _class = "";
+  export { _class as class };
+
   /** swipeable will enable open/close per swipe (touch) */
   export let swipeable: boolean = false;
   export let width: number = 300;
@@ -26,7 +29,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-  class="custom-drawer__outer"
+  class={"custom-drawer__outer " + _class}
   class:custom-drawer__fixed={fixed}
   class:custom-drawer__open={open}
   on:click={!fixed ? _clickOuter : null}

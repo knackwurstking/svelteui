@@ -1,7 +1,9 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class };
 </script>
 
-<div class="custom-button__group" {...$$restProps}>
+<div class={"custom-button__group " + _class} {...$$restProps}>
   <slot />
 </div>
 
