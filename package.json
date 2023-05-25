@@ -1,7 +1,6 @@
 {
   "name": "svelteui",
   "version": "0.0.1",
-  "svelte": "src/index.ts",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
