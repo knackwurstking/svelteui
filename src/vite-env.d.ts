@@ -3,6 +3,7 @@
 
 declare interface RippleOptions {
   reverse?: boolean;
+  startFromCenter?: boolean;
 }
 
 declare interface Position {

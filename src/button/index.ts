@@ -6,8 +6,13 @@ export { default as Label } from "./Label.svelte";
 export function createRippleAnimation(ev: MouseEvent, el: HTMLButtonElement, options: RippleOptions | null = null) {
   const rect = el.getBoundingClientRect();
 
-  const cursorX = ev.clientX - rect.x;
-  const cursorY = ev.clientY - rect.y;
+  let cursorX = ev.clientX - rect.x;
+  let cursorY = ev.clientY - rect.y;
+
+  if (options?.startFromCenter) {
+    cursorX = rect.width / 2;
+    cursorY = rect.height / 2;
+  }
 
   const circle = document.createElement("span");
   const diameter = Math.max(rect.width, rect.height);

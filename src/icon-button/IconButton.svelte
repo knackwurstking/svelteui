@@ -8,7 +8,9 @@
   export { _class as class };
 
   function _click(ev: MouseEvent) {
-    createRippleAnimation(ev, ev.currentTarget as HTMLSpanElement);
+    createRippleAnimation(ev, ev.currentTarget as HTMLSpanElement, {
+      startFromCenter: true,
+    });
     dispatch("click");
   }
 </script>
