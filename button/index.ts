@@ -25,10 +25,7 @@ export function createRippleAnimation(ev: MouseEvent, el: HTMLButtonElement, opt
   circle.classList.add("ripple");
 
   const ripple = el.getElementsByClassName("ripple")[0];
+  if (ripple) ripple.remove();
 
-  if (ripple) {
-    ripple.remove();
-  }
-
-  el.appendChild(circle);
+  el.append(circle);
 }
