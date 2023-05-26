@@ -11,6 +11,10 @@
   export let fixed: boolean = false;
   export let open: boolean = false;
 
+  function isSwipeable(): boolean {
+    return fixed || !swipeable;
+  }
+
   function _clickOuter(
     ev: MouseEvent & { currentTarget: EventTarget & HTMLDivElement } & {
       target: EventTarget & HTMLElement;
@@ -21,7 +25,7 @@
   }
 
   onMount(() => {
-    if (fixed || !swipeable) return;
+    if (!isSwipeable()) return;
 
     // TODO: add swipeable handler
   });
