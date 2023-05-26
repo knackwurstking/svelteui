@@ -7,6 +7,8 @@
   import Lists from "./routes/lists/Lists.svelte";
   import Misc from "./routes/misc/Misc.svelte";
   import Sliders from "./routes/sliders/Sliders.svelte";
+
+  let drawerItems: { name: string }[] = [];
 </script>
 
 <svelte:head>
@@ -16,10 +18,23 @@
 <Router>
   <Drawer fixed>
     <!-- TODO: items: "button", "checkbox", "drawer", ... -->
-    <!-- TODO: need some header item -->
+    <!-- TODO: need some (sub)header item -->
+    {#each drawerItems as item}
+      <!-- TODO component name and on:click handler (set .active item) -->
+    {/each}
   </Drawer>
 
-  <div>
+  <div class="content">
     <!-- TODO: routes (showcase components in a iframe?) -->
   </div>
 </Router>
+
+<style>
+  .content {
+    position: relative;
+    left: 300px;
+    top: 0;
+    width: calc(100% - 301px);
+    height: 100vh;
+  }
+</style>
