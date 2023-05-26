@@ -79,8 +79,15 @@
     if (!item) return;
 
     if (!multiple && !item.classList.contains("checked")) {
-      for (const c of customList.children) {
-        if (c.classList.contains("custom-list-item")) {
+      for (let c of customList.children) {
+        if (!c.classList.contains("custom-list-item")) {
+          c = c.querySelector(".custom-list-item") || c;
+        }
+
+        if (
+          c.classList.contains("custom-list-item") &&
+          c.classList.contains("checked")
+        ) {
           c.classList.remove("checked");
 
           const dataValue = JSON.parse(c.getAttribute("data-value"));
