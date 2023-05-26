@@ -20,6 +20,3 @@
     <!-- TODO: routes (showcase components in a iframe?) -->
   </div>
 </Router>
-
-<style>
-</style>
