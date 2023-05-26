@@ -37,7 +37,6 @@
       on:itemuncheck={() => console.log("itemuncheck")}
     >
       {#each drawerItems as item}
-        <!-- TODO component name and on:click handler (set .active item) -->
         <Item style="user-select: none;" primaryText={item.name} value={item} />
         <Separator />
       {/each}
