@@ -14,8 +14,8 @@
 </svelte:head>
 
 <Router>
-  <!-- TODO: a drawer component here to choose which route to go? -->
   <Drawer fixed />
+
   <div>
     <!-- TODO: routes (showcase components in a iframe?) -->
   </div>
