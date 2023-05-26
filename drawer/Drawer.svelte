@@ -65,12 +65,10 @@
     width: 100vw;
     height: 100vh;
     bottom: 0;
-    z-index: 1;
     transition: background-color 0.25s ease;
   }
 
-  .custom-drawer__outer:not(.custom-drawer__open),
-  .custom-drawer__fixed {
+  .custom-drawer__outer:not(.custom-drawer__open):not(.custom-drawer__fixed) {
     pointer-events: none;
   }
 
