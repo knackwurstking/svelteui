@@ -14,7 +14,10 @@
 </svelte:head>
 
 <Router>
-  <Drawer fixed />
+  <Drawer fixed>
+    <!-- TODO: items: "button", "checkbox", "drawer", ... -->
+    <!-- TODO: need some header item -->
+  </Drawer>
 
   <div>
     <!-- TODO: routes (showcase components in a iframe?) -->
