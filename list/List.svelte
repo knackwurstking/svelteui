@@ -1,8 +1,5 @@
 <script lang="ts">
-  // TODO: clean up this mess
-
   import { createEventDispatcher } from "svelte";
-
   import { createItem, createRippleAnimation } from ".";
 
   const dispatch = createEventDispatcher();
@@ -13,51 +10,53 @@
   export let checkable: boolean = false;
   export let multiple: boolean = false;
 
-  /** checklist will disable all the highlighting for the items ".checked" class */
+  /** checklist disable all the highlighting */
   export let checklist: boolean = false;
-
-  export let data: any[] | null = null;
-  $: !!data && renderList(...data);
 
   export let group: any[] = [];
 
+  /** data need a renderItemHandler callback */
+  export let data: any[] | null = null;
+  /** renderItemHandler renders list items from data */
   export let renderItemHandler:
     | ((item: HTMLLIElement, data: any) => HTMLLIElement)
     | null = null;
 
-  let customList: HTMLUListElement;
-  let renderListInterval: number | null = null;
+  $: !!data && renderList(...data);
+
+  let _ul: HTMLUListElement;
+  let _renderListInterval: number | null = null;
 
   function renderList(...data: any[]) {
-    if (!customList || !data) return;
+    if (!_ul || !data) return;
 
-    if (renderListInterval !== null) {
-      clearInterval(renderListInterval);
+    if (_renderListInterval !== null) {
+      clearInterval(_renderListInterval);
       console.debug(`[list] Current list rendering canceled!`);
     }
 
     console.debug(`[list] Render data list with ${data.length} items`);
 
     // clear list
-    while (customList.lastChild) customList.removeChild(customList.lastChild);
+    while (_ul.lastChild) _ul.removeChild(_ul.lastChild);
     // return if data list is empty
     if (!data.length) return;
 
-    renderListInterval = setInterval(() => {
+    _renderListInterval = setInterval(() => {
       try {
         const _data = data.shift();
         const item: HTMLLIElement = !!renderItemHandler
           ? renderItemHandler(createItem(_data), _data)
           : createItem(_data);
-        customList.appendChild(item);
+        _ul.appendChild(item);
       } catch (err) {
-        clearInterval(renderListInterval);
+        clearInterval(_renderListInterval);
         console.warn(`[list] Rendering data list failed!`);
         console.error(err);
       }
 
       if (!data.length) {
-        clearInterval(renderListInterval);
+        clearInterval(_renderListInterval);
         console.log(`[list] Rendering data done`);
       }
     }, 1);
@@ -79,7 +78,7 @@
     if (!item) return;
 
     if (!multiple && !item.classList.contains("checked")) {
-      for (let c of customList.children) {
+      for (let c of _ul.children) {
         if (!c.classList.contains("custom-list-item")) {
           c = c.querySelector(".custom-list-item") || c;
         }
@@ -132,7 +131,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <ul
-  bind:this={customList}
+  bind:this={_ul}
   class={"custom-list " + _class}
   class:checklist
   {...$$restProps}
