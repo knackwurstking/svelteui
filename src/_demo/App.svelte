@@ -30,7 +30,6 @@
 
 <Router>
   <Drawer fixed>
-    <!-- TODO: items: "button", "checkbox", "drawer", ... -->
     <!-- TODO: need some (sub)header item -->
     <List
       checkable
