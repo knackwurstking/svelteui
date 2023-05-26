@@ -8,6 +8,6 @@
 }
 
 .custom-drawer {
-  background-color: var(--theme-secondary);
+  background-color: var(--theme-surface);
   border-right: 1px solid var(--theme-border-color);
 }
