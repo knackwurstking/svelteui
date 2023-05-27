@@ -28,7 +28,12 @@
       disabled: false,
       description: "How to use a theme",
     },
-    { name: "Buttons", route: "/buttons", disabled: false },
+    {
+      name: "Buttons",
+      route: "/buttons",
+      disabled: false,
+      description: "Button and Button Group examples",
+    },
     { name: "IconButton", disabled: true },
     { name: "Checkbox", disabled: true },
     { name: "Slider", disabled: true },
