@@ -20,8 +20,12 @@
   overflow: hidden;
 }
 
-.custom-list:not(.checklist) .custom-list-item.checked {
+.custom-list:not(.checklist) .custom-list-item.checked:not(.disabled) {
   background-color: var(--theme-list-item-primary);
+}
+
+.custom-list-item.disabled {
+  color: var(--theme-color--disabled);
 }
 
 .custom-list-item > .custom-list-item__meta:first-child {
