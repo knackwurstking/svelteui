@@ -11,18 +11,40 @@
   import Misc from "./routes/misc/Misc.svelte";
   import Sliders from "./routes/sliders/Sliders.svelte";
 
-  let drawerItems: { name: string; disabled: boolean; description?: string }[] =
-    [
-      { name: "Install", disabled: true },
-      { name: "Theme", disabled: false, description: "How to use a theme" },
-      { name: "Button", disabled: true },
-      { name: "IconButton", disabled: true },
-      { name: "Checkbox", disabled: true },
-      { name: "Slider", disabled: true },
-      { name: "Drawer", disabled: true },
-      { name: "List", disabled: true },
-      { name: "Misc", disabled: true },
-    ];
+  interface Item {
+    name: string;
+    disabled: boolean;
+    description?: string;
+  }
+
+  interface View {
+    title: string;
+  }
+
+  let drawerWidth: number;
+  let drawerOpen: boolean;
+  let drawerItems: Item[] = [
+    { name: "Install", disabled: true },
+    { name: "Theme", disabled: false, description: "How to use a theme" },
+    { name: "Button", disabled: true },
+    { name: "IconButton", disabled: true },
+    { name: "Checkbox", disabled: true },
+    { name: "Slider", disabled: true },
+    { name: "Drawer", disabled: true },
+    { name: "List", disabled: true },
+    { name: "Misc", disabled: true },
+  ];
+
+  let view: View = {
+    title: "",
+  };
+
+  function _drawerItemChecked(ev: CustomEvent<{ data: Item }>) {
+    const data = ev.detail.data;
+    view = {
+      title: data.name,
+    };
+  }
 </script>
 
 <svelte:head>
@@ -30,13 +52,13 @@
 </svelte:head>
 
 <Router>
-  <Drawer fixed>
+  <Drawer fixed bind:width={drawerWidth} bind:open={drawerOpen}>
     <List
       style={`
         padding: 8px;
       `}
       checkable
-      on:itemcheck={() => console.log("itemcheck")}
+      on:itemcheck={(ev) => _drawerItemChecked(ev)}
       on:itemuncheck={() => console.log("itemuncheck")}
     >
       {#each drawerItems as item}
@@ -56,17 +78,26 @@
     </List>
   </Drawer>
 
-  <div class="content">
-    <!-- TODO: routes (showcase components in a iframe?) -->
+  <div
+    style={`
+      position: relative;
+      left: ${drawerOpen ? drawerWidth || 0 : 0}px;
+      top: 0;
+      width: calc(100% - ${drawerOpen ? drawerWidth || 0 : 0}px);
+      height: 100vh;
+    `}
+    class="views"
+  >
+    {#if view.title !== ""}
+      <iframe title={view.title} />
+    {/if}
   </div>
 </Router>
 
 <style>
-  .content {
-    position: relative;
-    left: 300px;
-    top: 0;
-    width: calc(100% - 301px);
-    height: 100vh;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 </style>
