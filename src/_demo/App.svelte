@@ -32,12 +32,23 @@
   <Drawer fixed>
     <!-- TODO: need some (sub)header item -->
     <List
+      style={`
+        padding: 8px;
+      `}
       checkable
       on:itemcheck={() => console.log("itemcheck")}
       on:itemuncheck={() => console.log("itemuncheck")}
     >
       {#each drawerItems as item}
-        <Item style="user-select: none;" primaryText={item.name} value={item} />
+        <Item
+          style={`
+            user-select: none;
+            border-radius: var(--theme-border-radius);
+            margin: 4px 0;
+          `}
+          primaryText={item.name}
+          value={item}
+        />
         <Separator />
       {/each}
     </List>
