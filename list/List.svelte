@@ -105,6 +105,7 @@
       }
     }
 
+    if (item.classList.contains("disabled")) return;
     item.classList.toggle("checked");
 
     const dataValue = JSON.parse(item.getAttribute("data-value"));

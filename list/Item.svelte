@@ -8,6 +8,7 @@
   export let height: number | string = "fit-content";
   export let primaryText: string = "";
   export let secondaryText: string = "";
+  export let disabled: boolean = false;
 
   /** Used for List item (un)check */
   export let value: any = null;
@@ -18,6 +19,7 @@
 <li
   class={"custom-list-item " + _class}
   class:checked
+  class:disabled
   style={`
     height: ${typeof height === "number" ? `${height}px` : `${height}`};
     ${_style}
