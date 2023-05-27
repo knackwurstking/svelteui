@@ -9,7 +9,7 @@
   export let width: number = 300;
   /** fixed will disable swipeable */
   export let fixed: boolean = false;
-  export let open: boolean = false;
+  export let open: boolean = fixed || false;
 
   function isSwipeable(): boolean {
     return fixed || !swipeable;
