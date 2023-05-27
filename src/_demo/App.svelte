@@ -35,7 +35,16 @@
     { name: "Slider", disabled: true },
     { name: "Drawer", disabled: true },
     { name: "List", disabled: true },
-    { name: "Misc", disabled: true },
+    {
+      name: "Infinite Swipe",
+      disabled: true,
+      description: "Infinite horizontal or vertical swipe",
+    },
+    {
+      name: "Misc",
+      disabled: true,
+      description: "Just some random components",
+    },
   ];
 
   function _drawerItemChecked(ev: CustomEvent<{ data: Item }>) {
