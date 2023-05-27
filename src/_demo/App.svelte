@@ -4,12 +4,8 @@
   import Drawer from "../../drawer";
   import List, { Item, Separator } from "../../list";
 
-  import Theme from "./routes/theme/Theme.svelte";
-  import Buttons from "./routes/buttons/Buttons.svelte";
-  import Checkboxes from "./routes/checkboxes/Checkboxes.svelte";
-  import Lists from "./routes/lists/Lists.svelte";
-  import Misc from "./routes/misc/Misc.svelte";
-  import Sliders from "./routes/sliders/Sliders.svelte";
+  import Theme from "./views/theme/Theme.svelte";
+  import Buttons from "./views/buttons/Buttons.svelte";
 
   interface Item {
     name: string;
