@@ -25,6 +25,12 @@
       description: "How to use a theme",
     },
     {
+      name: "TopAppBar",
+      route: "/top-app-bar",
+      disabled: true,
+      description: "An app bar on top?",
+    },
+    {
       name: "Buttons",
       route: "/buttons",
       disabled: false,
