@@ -8,6 +8,7 @@
   export { _class as class };
 
   export let checkable: boolean = false;
+  export let preventUncheck: boolean = false;
   export let multiple: boolean = false;
 
   /** checklist disable all the highlighting */
@@ -76,6 +77,7 @@
     }
 
     if (!item) return;
+    else if (item.classList.contains("disabled")) return;
 
     if (!multiple && !item.classList.contains("checked")) {
       for (let c of _ul.children) {
@@ -105,7 +107,8 @@
       }
     }
 
-    if (item.classList.contains("disabled")) return;
+    if (preventUncheck && item.classList.contains("checked")) return;
+
     item.classList.toggle("checked");
 
     const dataValue = JSON.parse(item.getAttribute("data-value"));
