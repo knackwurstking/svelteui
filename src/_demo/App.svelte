@@ -6,6 +6,7 @@
 
   import Theme from "./views/theme/Theme.svelte";
   import Buttons from "./views/buttons/Buttons.svelte";
+  import InfiniteSwipe from "./views/infinite-swipe/InfiniteSwipe.svelte";
 
   interface Item {
     name: string;
@@ -43,7 +44,8 @@
     { name: "List", disabled: true },
     {
       name: "Infinite Swipe",
-      disabled: true,
+      route: "/infinite-swipe",
+      disabled: false,
       description: "Infinite horizontal or vertical swipe",
     },
     {
@@ -104,5 +106,6 @@
   >
     <Route path="/theme" component={Theme} />
     <Route path="/buttons" component={Buttons} />
+    <Route path="/infinite-swipe" component={InfiniteSwipe} />
   </div>
 </Router>
