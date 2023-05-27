@@ -5,6 +5,7 @@
   import Drawer from "../../drawer";
   import List, { Item, Separator } from "../../list";
 
+  import Theme from "./routes/theme/Theme.svelte";
   import Buttons from "./routes/buttons/Buttons.svelte";
   import Checkboxes from "./routes/checkboxes/Checkboxes.svelte";
   import Lists from "./routes/lists/Lists.svelte";
@@ -88,16 +89,8 @@
     `}
     class="views"
   >
-    {#if view.title !== ""}
-      <iframe title={view.title} />
+    {#if view.title === "Theme"}
+      <Theme />
     {/if}
   </div>
 </Router>
-
-<style>
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
