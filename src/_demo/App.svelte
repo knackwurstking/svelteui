@@ -30,7 +30,6 @@
 
 <Router>
   <Drawer fixed>
-    <!-- TODO: need some (sub)header item -->
     <List
       style={`
         padding: 8px;
