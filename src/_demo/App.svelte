@@ -11,17 +11,18 @@
   import Misc from "./routes/misc/Misc.svelte";
   import Sliders from "./routes/sliders/Sliders.svelte";
 
-  let drawerItems: { name: string }[] = [
-    { name: "Install" },
-    { name: "Theme" },
-    { name: "Button" },
-    { name: "IconButton" },
-    { name: "Checkbox" },
-    { name: "Slider" },
-    { name: "Drawer" },
-    { name: "List" },
-    { name: "Misc" },
-  ];
+  let drawerItems: { name: string; disabled: boolean; description?: string }[] =
+    [
+      { name: "Install", disabled: true },
+      { name: "Theme", disabled: false, description: "How to use a theme" },
+      { name: "Button", disabled: true },
+      { name: "IconButton", disabled: true },
+      { name: "Checkbox", disabled: true },
+      { name: "Slider", disabled: true },
+      { name: "Drawer", disabled: true },
+      { name: "List", disabled: true },
+      { name: "Misc", disabled: true },
+    ];
 </script>
 
 <svelte:head>
@@ -46,7 +47,9 @@
             margin: 4px 0;
           `}
           primaryText={item.name}
+          secondaryText={item.description || ""}
           value={item}
+          disabled={item.disabled}
         />
         <Separator />
       {/each}
