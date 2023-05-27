@@ -1,6 +1,5 @@
 <script lang="ts">
-  // TODO: showcase (and testing) all the components here
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Route, navigate } from "svelte-routing";
 
   import Drawer from "../../drawer";
   import List, { Item, Separator } from "../../list";
@@ -14,20 +13,22 @@
 
   interface Item {
     name: string;
+    route?: string;
     disabled: boolean;
     description?: string;
-  }
-
-  interface View {
-    title: string;
   }
 
   let drawerWidth: number;
   let drawerOpen: boolean;
   let drawerItems: Item[] = [
     { name: "Install", disabled: true },
-    { name: "Theme", disabled: false, description: "How to use a theme" },
-    { name: "Button", disabled: true },
+    {
+      name: "Theme",
+      route: "/theme",
+      disabled: false,
+      description: "How to use a theme",
+    },
+    { name: "Buttons", route: "/buttons", disabled: false },
     { name: "IconButton", disabled: true },
     { name: "Checkbox", disabled: true },
     { name: "Slider", disabled: true },
@@ -36,15 +37,9 @@
     { name: "Misc", disabled: true },
   ];
 
-  let view: View = {
-    title: "",
-  };
-
   function _drawerItemChecked(ev: CustomEvent<{ data: Item }>) {
     const data = ev.detail.data;
-    view = {
-      title: data.name,
-    };
+    if (data.route) navigate(data.route);
   }
 </script>
 
@@ -59,6 +54,7 @@
         padding: 8px;
       `}
       checkable
+      preventUncheck
       on:itemcheck={(ev) => _drawerItemChecked(ev)}
       on:itemuncheck={() => console.log("itemuncheck")}
     >
@@ -73,6 +69,7 @@
           secondaryText={item.description || ""}
           value={item}
           disabled={item.disabled}
+          checked={location.pathname === item.route}
         />
         <Separator />
       {/each}
@@ -89,8 +86,7 @@
     `}
     class="views"
   >
-    {#if view.title === "Theme"}
-      <Theme />
-    {/if}
+    <Route path="/theme" component={Theme} />
+    <Route path="/buttons" component={Buttons} />
   </div>
 </Router>
