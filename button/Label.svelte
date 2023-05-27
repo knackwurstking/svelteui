@@ -3,7 +3,7 @@
   export { _class as class };
 </script>
 
-<span class={"custom-button__group " + _class} {...$$restProps}><slot /></span>
+<span class={"custom-button__label " + _class} {...$$restProps}><slot /></span>
 
 <style>
   span {
