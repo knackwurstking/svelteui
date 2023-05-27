@@ -2,6 +2,7 @@
   /* colors */
   --theme-background: #000000;
   --theme-color: #ffffff;
+  --theme-color--disabled: rgba(255, 255, 255, 0.38);
 
   --theme-link: #40b3ff;
   --theme-link--visited: #007dcf;
@@ -25,7 +26,6 @@
   --theme-button-height: 36px;
   --theme-button-disabled-border-color: rgba(255, 255, 255, 0.12);
   --theme-button-disabled-background: rgba(255, 255, 255, 0.12);
-  --theme-button-disabled-color: rgba(255, 255, 255, 0.38);
 
   /* list specific stuff */
   --theme-list-item-primary: rgba(62, 255, 0, 0.7);
