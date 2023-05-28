@@ -1,7 +1,8 @@
 <script lang="ts">
+  export let value: any;
 </script>
 
-<div class="custom-infinite-swipe__item">
+<div class="custom-infinite-swipe__item" data-value={value}>
   <slot />
 </div>
 
