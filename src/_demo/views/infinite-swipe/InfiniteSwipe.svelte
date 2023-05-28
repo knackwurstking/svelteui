@@ -1,6 +1,11 @@
 <script lang="ts">
+  import InfiniteSwipe, {
+    Item as InfiniteSwipeItem,
+  } from "../../../../infinite-swipe";
 </script>
 
 <main>
-  <h1>@todo: "Infinite Swipe"</h1>
+  <InfiniteSwipe orientation="horizontal">
+    <InfiniteSwipeItem />
+  </InfiniteSwipe>
 </main>
