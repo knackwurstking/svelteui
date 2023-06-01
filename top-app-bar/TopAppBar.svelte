@@ -1,3 +1,3 @@
 <script lang="ts">
-  export let height: number = 65;
+  export let height: number = 50;
 </script>
