@@ -2,6 +2,9 @@
   let _css = "";
   export { _css as css };
 
+  let _styles = "";
+  export { _styles as styles };
+
   // TopAppBar.svelte
   export let height: number = 50;
   // TODO: need a slot for meta "left" and "right"
@@ -12,7 +15,8 @@
   style={`
     width: 100%;
     height: ${height}px;
-  `}
+  ` + _styles}
+  {...$$restProps}
 >
   <!-- TODO: left and right meta slots -->
 </nav>
