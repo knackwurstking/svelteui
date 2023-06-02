@@ -15,6 +15,6 @@
 
 <style>
   nav {
-    border: 1px solid red;
+    border-bottom: 1px solid var(--theme-border-color);
   }
 </style>
