@@ -1,12 +1,27 @@
 .custom-topappbar {
+  display: flex;
+  flex-direction: row;
+
   border-bottom: 1px solid var(--theme-border-color);
 }
 
+.custom-topappbar > .spacer {
+  width: 100%;
+}
+
 .custom-topappbar .custom-topappbar-meta {
+  width: fit-content;
+
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .custom-topappbar .custom-topappbar-meta:first-child {
+
+  border: 1px solid green;
 }
 
 .custom-topappbar .custom-topappbar-meta:last-child {
+
+  border: 1px solid orange;
 }

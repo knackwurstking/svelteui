@@ -17,5 +17,6 @@
   {...$$restProps}
 >
   <slot name="left" />
+  <div class="spacer" />
   <slot name="right" />
 </nav>
