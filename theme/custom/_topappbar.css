@@ -15,9 +15,3 @@
   display: inline-flex;
   flex-direction: row;
 }
-
-.custom-topappbar .custom-topappbar-meta:first-child {
-}
-
-.custom-topappbar .custom-topappbar-meta:last-child {
-}
