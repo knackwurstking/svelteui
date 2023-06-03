@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
 
+  width: 42px;
+  height: 42px;
+
   position: relative;
   cursor: pointer;
   border-radius: 50%;
