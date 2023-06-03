@@ -8,4 +8,6 @@
 
 <div 
   class={"custom-topappbar-meta " + _class}
-></div>
+>
+  <slot />
+</div>
