@@ -1,6 +1,9 @@
 .custom-icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: relative;
-  padding: 8px 14px 8px 8px;
   cursor: pointer;
   border-radius: 50%;
   overflow: hidden;
