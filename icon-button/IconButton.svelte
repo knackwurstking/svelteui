@@ -7,6 +7,8 @@
   let _class = "";
   export { _class as class };
 
+  export let disabled = false;
+
   function _click(ev: MouseEvent) {
     createRippleAnimation(ev, ev.currentTarget as HTMLSpanElement, {
       startFromCenter: true,
@@ -18,8 +20,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class={"custom-icon-button material-symbols-outlined " + _class}
+  class:disabled
   {...$$restProps}
-  on:click={_click}
+  on:click={!disabled && _click}
 >
   <slot />
 </div>

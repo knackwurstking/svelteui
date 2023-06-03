@@ -12,3 +12,7 @@
   overflow: hidden;
   user-select: none;
 }
+
+.custom-icon-button.disabled {
+  color: var(--theme-color--disabled);
+}
