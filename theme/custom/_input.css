@@ -1,8 +1,38 @@
 .custom-input {
+  font-size: 1rem;
 }
 
-.custom-input.noedit {
+.custom-input span {
+  display: inline-block;
+  font-size: 0.75em;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 0 var(--theme-border-radius);
 }
 
-.custom-input.disabled {
+.custom-input input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+
+  font-size: 1em;
+  padding: 2px var(--theme-border-radius);
+  margin-top: -4px;
+
+  background-color: transparent;
+  color: var(--theme-color);
+  outline: none;
+  border: none;
+  border: 2px inset var(--theme-border-color);
+  border-radius: var(--theme-border-radius);
+}
+
+.custom-input.readonly input {
+  border: none;
+  cursor: default;
+}
+
+.custom-input.disabled span,
+.custom-input.disabled input {
+  color: var(--theme-color--disabled);
 }

@@ -16,7 +16,7 @@
   --theme-on-surface: #ffffff;
 
   /* global border settings */
-  --theme-border-color: rgba(255, 255, 255, 0.12);
+  --theme-border-color: rgba(255, 255, 255, 0.24);
   --theme-border-radius: 4px;
 
   /* button specific stuff */
@@ -24,7 +24,7 @@
   --theme-button-letter-spacing: 0.0892857143em;
   --theme-button-font-weight: 500;
   --theme-button-height: 36px;
-  --theme-button-disabled-border-color: rgba(255, 255, 255, 0.12);
+  --theme-button-disabled-border-color: var(--theme-border-color);
   --theme-button-disabled-background: rgba(255, 255, 255, 0.12);
 
   /* list specific stuff */

@@ -1,28 +1,39 @@
 <script lang="ts">
+  let _class = "";
+  export { _class as class }
+
   export let value: number;
 
   export let min:number = null;
   export let max:number = null;
-  export let noedit = false;
+  export let readonly = false;
   export let disabled = false;
 </script>
 
 <label
-  class="custom-input"
-  class:noedit
+  class={"custom-input " + _class}
+  class:readonly
   class:disabled
+  {...$$restProps}
 >
   <span><slot /></span>
-  <input bind:value type="number" {min} {max} />
+  <input bind:value
+    type="number"
+    {min}
+    {max}
+    {disabled}
+    readonly={readonly}
+  />
 </label>
 
 <style>
-  .custom-input[type="number"] {
+  .custom-input input[type="number"] {
+    width: 100%;
   }
 
-  .custom-input[type="number"].noedit {
+  .custom-input input[type="number"].readonly {
   }
 
-  .custom-input[type="number"].disabled {
+  .custom-input input[type="number"].disabled {
   }
 </style>
