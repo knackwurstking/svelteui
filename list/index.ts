@@ -3,10 +3,9 @@ export { default as Item } from "./Item.svelte";
 export { default as Meta } from "./Meta.svelte";
 export { default as Separator } from "./Separator.svelte";
 
-import { createRippleAnimation as _createRippleAnimation } from "../button";
+import { createRippleAnimation as _createRippleAnimation } from "../ripple";
 
 export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement, options: RippleOptions | null = null) {
-  // @ts-expect-error
   return _createRippleAnimation(ev, el, options);
 }
 
