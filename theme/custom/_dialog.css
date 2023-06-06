@@ -1,0 +1,17 @@
+.custom-dialog {
+  color: var(--theme-on-surface) !important;
+  background-color: var(--theme-surface, red) !important;
+
+  border-width: 1px;
+  border-color: var(--theme-border-color);
+  border-radius: var(--theme-border-radius);
+
+  padding: 8px;
+}
+
+.custom-dialog > .custom-dialog-content {
+  width: 100%;
+  height: 100%;
+
+  padding: 8px;
+}
