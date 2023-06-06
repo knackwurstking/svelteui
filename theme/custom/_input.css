@@ -25,6 +25,10 @@
   border-radius: var(--theme-border-radius);
 }
 
+.custom-input.invalid input {
+  border-color: var(--theme-error);
+}
+
 .custom-input.readonly input {
   border: none;
   cursor: default;

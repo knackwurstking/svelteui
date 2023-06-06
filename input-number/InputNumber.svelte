@@ -8,13 +8,14 @@
   export let max:number = null;
   export let readonly = false;
   export let disabled = false;
+  export let invalid = false;
 </script>
 
 <label
   class={"custom-input " + _class}
   class:readonly
   class:disabled
-  {...$$restProps}
+  class:invalid
 >
   <span><slot /></span>
   <input bind:value
@@ -22,18 +23,13 @@
     {min}
     {max}
     {disabled}
-    readonly={readonly}
+    {readonly}
+    {...$$restProps}
   />
 </label>
 
 <style>
   .custom-input input[type="number"] {
     width: 100%;
-  }
-
-  .custom-input input[type="number"].readonly {
-  }
-
-  .custom-input input[type="number"].disabled {
   }
 </style>
