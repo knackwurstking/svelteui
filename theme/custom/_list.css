@@ -28,14 +28,6 @@
   color: var(--theme-color--disabled);
 }
 
-.custom-list-item > .custom-list-item__meta:first-child {
-  /* TODO: left meta */
-}
-
-.custom-list-item > .custom-list-item__meta:last-child {
-  /* TODO: right meta */
-}
-
 .custom-list-item__text {
   height: 100%;
   padding: 8px;
