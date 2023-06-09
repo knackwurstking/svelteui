@@ -15,4 +15,5 @@
 
 .custom-icon-button.disabled {
   color: var(--theme-color--disabled);
+  cursor: default;
 }
