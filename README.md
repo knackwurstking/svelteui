@@ -1,5 +1,14 @@
 # Svetle UI
 
+<!-- TOC -->
+
+- [Svetle UI](#svetle-ui)
+    - [Projects using this](#projects-using-this)
+    - [Examples](#examples)
+        - [Ripple](#ripple)
+
+<!-- /TOC -->
+
 ## Projects using this
 
 - [picow-rgbw-web](https://github.com/knackwurstking/picow-rgbw-web.git)
