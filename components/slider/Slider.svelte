@@ -1,6 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
+  import type { Position } from ".";
+
   const dispatch = createEventDispatcher();
 
   let _class = "";

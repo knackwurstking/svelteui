@@ -3,12 +3,6 @@ export { default as Item } from "./Item.svelte";
 export { default as Meta } from "./Meta.svelte";
 export { default as Separator } from "./Separator.svelte";
 
-import { createRippleAnimation as _createRippleAnimation } from "../ripple";
-
-export function createRippleAnimation(ev: MouseEvent, el: HTMLLIElement, options: RippleOptions | null = null) {
-  return _createRippleAnimation(ev, el, options);
-}
-
 export function createMeta(...children: HTMLElement[]): HTMLSpanElement {
   const span = document.createElement("span");
 

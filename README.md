@@ -31,7 +31,7 @@ export function createRippleAnimation(ev: MouseEvent, el: HTMLElement, options: 
 
 ```svelte
 <script lang="ts">
-    import { createRippleAnimation } from "svelteui/ripple";
+    import { createRippleAnimation } from "svelteui/lib/ripple";
 
     const _click = (ev: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement }) => 
         createRippleAnimation(ev, ev.currentTarget, null);

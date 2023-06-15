@@ -1,6 +1,9 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { createItem, createRippleAnimation } from ".";
+
+  import { createRippleAnimation } from "../../lib/ripple";
+
+  import { createItem } from ".";
 
   const dispatch = createEventDispatcher();
 

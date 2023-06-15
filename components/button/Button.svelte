@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import { createRippleAnimation } from ".";
+  import { createRippleAnimation } from "../../lib/ripple";
 
   let _class = "";
   export { _class as class };

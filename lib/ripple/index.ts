@@ -1,3 +1,8 @@
+export interface RippleOptions {
+  reverse?: boolean;
+  startFromCenter?: boolean;
+}
+
 export function createRippleAnimation(ev: MouseEvent, el: HTMLElement, options: RippleOptions | null = null) {
   const rect = el.getBoundingClientRect();
 

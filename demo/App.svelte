@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Router, Route, navigate } from "svelte-routing";
 
-  import Drawer from "../../drawer";
-  import List, { Item, Separator } from "../../list";
+  import Drawer from "../components/drawer";
+  import List, { Item, Separator } from "../components/list";
 
   import Theme from "./views/theme/Theme.svelte";
   import Buttons from "./views/buttons/Buttons.svelte";
