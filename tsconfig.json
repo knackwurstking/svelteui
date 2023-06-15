@@ -15,6 +15,11 @@
     "checkJs": true,
     "isolatedModules": true
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
+  "include": [
+    "components/**/*.d.ts", "components/**/*.ts", "components/**/*.js", "components/**/*.svelte",
+    "lib/**/*.d.ts", "lib/**/*.ts", "lib/**/*.js", "lib/**/*.svelte",
+    "demo/**/*.d.ts", "demo/**/*.ts", "demo/**/*.js", "demo/**/*.svelte",
+    "*.d.ts",
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
